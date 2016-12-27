@@ -5,3 +5,6 @@ Also putting the learning method of Learn Python The Hard Way to good use
   run the code
   add comments to all the lines of code
   make something with the code
+
+CREDIT WHERE IT IS DUE:
+  http://www.html5canvastutorials.com/

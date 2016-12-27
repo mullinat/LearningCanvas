@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<!-- btw I stole all this code HAHA SUCKERS, serisously check README to find where I got it-->
+
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+    <script>
+        var elem = document.getElementById('myCanvas'); //create a javascript elemnt
+        var context = elem.getContext('2d'); //same thing I see repeated
+        var elements = []; //create list of elements, to be displayed, and boxed
+        // Add event listener for `click` events.
+        elem.addEventListener('click', function(event) { //the function that detects the click
+            var x = event.pageX - elem.offsetLeft,
+                y = event.pageY - elem.offsetTop;
+
+            // Collision detection between clicked offset and element.
+            elements.forEach(function(element) {
+                if (y > element.top && y < element.top + element.height &&
+                    x > element.left && x < element.left + element.width) {
+                    document.getElementById("myCanvas").style.background = "rgb(" + Math.floor((Math.random() * 255) + 1) + ",200, 90)";
+                    //alert('clicked an element');
+                }
+            });
+
+        }, false);
+
+        // draw the rectangle you can click, and add it to the list
+        elements.push({
+            colour: '#05EFFF',
+            width: 150,
+            height: 100,
+            top: 20,
+            left: 15
+        });
+        elements.push({
+            colour: '#f51b1b',
+            width: 50,
+            height: 50,
+            top: 0,
+            left: 0
+        });
+
+        // Render elements.
+        elements.forEach(function(element) {
+            context.fillStyle = element.colour;
+            context.fillRect(element.left, element.top, element.width, element.height);
+        });
+    </script>
+</body>
+
+</html>
