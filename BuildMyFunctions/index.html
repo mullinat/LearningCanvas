@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script>
+        function drawLine(xpos1, ypos1, xpos2, ypos2) {
+            var temp_line = canvas.getContext('2d');
+            temp_line.beginPath(); //declare that the line wants to be drawn
+            //(horizontal, vertical from top)
+            temp_line.moveTo(xpos1, ypos1); //first point
+            temp_line.lineTo(xpos2, ypos2); //second point
+            temp_line.lineWidth = 15; //line width
+            temp_line.strokeStyle = '#ff0000'; //line color
+            temp_line.lineCap = 'round'; // line cap 'butt' and 'square also work'
+            temp_line.stroke(); //actually draw whatever you want to draw
+        }
+
+        function drawCircle(centerX, centerY, radius) {
+            var temp_circle = canvas.getContext('2d'); //declare that we can draw a line
+            temp_circle.beginPath(); //declare that the circle wants to be drawn
+            temp_circle.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+            temp_circle.fillStyle = 'purple'; //say we want to full the circle green
+            temp_circle.fill(); //actually fill the circle green
+            temp_circle.lineWidth = 5; //set the line width of the circle
+            temp_circle.strokeStyle = 'red'; //change the color of the line drawing the circle
+            temp_circle.stroke();
+        }
+
+        function writeText(text, xpos, ypos) {
+            context.font = 'italic 40pt Calibri'; //set font and size
+            context.fillStyle = 'blue'; //change color
+            context.fillText(text, xpos, ypos); //display text and location
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        drawLine(10, 10, 100, 200);
+        drawLine(10, 10, 200, 100);
+        drawCircle(40, 40, 15);
+        drawCircle(80, 80, 15);
+        writeText("I LIKE PIE", 100, 100);
+    </script>
+</body>
+
+</html>
