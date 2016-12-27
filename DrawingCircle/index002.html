@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+        //setup the convas stuff
+        var canvas = document.getElementById('myCanvas'); //connect to the canvas element
+        //just draw a circle
+        function drawCircle(centerX, centerY, radius) {
+            var temp_circle = canvas.getContext('2d'); //declare that we can draw a line
+            temp_circle.beginPath(); //declare that the circle wants to be drawn
+            temp_circle.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+            temp_circle.fillStyle = 'purple'; //say we want to full the circle green
+            temp_circle.fill(); //actually fill the circle green
+            temp_circle.lineWidth = 5; //set the line width of the circle
+            temp_circle.strokeStyle = 'red'; //change the color of the line drawing the circle
+            temp_circle.stroke();
+        }
+        drawCircle(40,40,15);
+        drawCircle(80,80,15);
+    </script>
+</body>
+
+</html>

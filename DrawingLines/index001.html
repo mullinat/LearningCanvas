@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      //setup the convas stuff
+      var canvas = document.getElementById('myCanvas');//connect to the canvas element
+      var context = canvas.getContext('2d');//declare that we can draw a line
+      //just draw a line
+      context.beginPath();//declare that the line wants to be drawn
+      //coordinant system
+      context.moveTo(100, 150);//first point (horizontal, vertical from top)
+      context.lineTo(450, 50);//second point
+      context.lineWidth = 15;//line width
+      context.strokeStyle = '#ff0000';//line color
+      context.lineCap = 'round';// line cap 'butt' and 'square also work'
+      context.stroke();//actually draw the line
+    </script>
+  </body>
+</html>

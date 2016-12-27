@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+        var elem = document.getElementById('myCanvas'),
+            elemLeft = elem.offsetLeft,//pixles from left side
+            elemTop = elem.offsetTop,//pixles from top
+            context = elem.getContext('2d'),//same thing I see repeated
+            elements = [];//no clue why this is here
+
+        // Add event listener for `click` events.
+        elem.addEventListener('click', function(event) {//the function that detects the click
+            var x = event.pageX - elemLeft,
+                y = event.pageY - elemTop;
+
+            // Collision detection between clicked offset and element.
+            elements.forEach(function(element) {
+                if (y > element.top && y < element.top + element.height &&
+                    x > element.left && x < element.left + element.width) {
+                    alert('clicked an element');
+                }
+            });
+
+        }, false);
+
+        // draw the rectangle you can click
+        elements.push({
+            colour: '#05EFFF',
+            width: 150,
+            height: 100,
+            top: 20,
+            left: 15
+        });
+
+        // Render elements.
+        elements.forEach(function(element) {
+            context.fillStyle = element.colour;
+            context.fillRect(element.left, element.top, element.width, element.height);
+        });
+    </script>
+</body>
+
+</html>

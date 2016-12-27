@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+        //setup the convas stuff
+        var canvas = document.getElementById('myCanvas'); //connect to the canvas element
+        var context = canvas.getContext('2d'); //declare that we can draw a line
+        //just draw a circle
+        var centerX = 60;
+        var centerY = 40;
+        var radius = 15;
+        context.beginPath(); //declare that the circle wants to be drawn
+        context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = 'purple';//say we want to full the circle green
+        context.fill();//actually fill the circle green
+        context.lineWidth = 5;//set the line width of the circle
+        context.strokeStyle = 'red';//change the color of the line drawing the circle
+        context.stroke();
+    </script>
+</body>
+
+</html>
