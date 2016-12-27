@@ -51,10 +51,35 @@
             temp_circle.stroke();
         }
 
-        function writeText(text, xpos, ypos) {
-            context.font = 'italic 40pt Calibri'; //set font and size
-            context.fillStyle = 'blue'; //change color
-            context.fillText(text, xpos, ypos); //display text and location
+        function writeText(text, xpos, ypos, align, size, text_font, style, color) {
+            //maybe usetags in a string to get the info /t /x /y /a /s /f /s /c or type them out
+            var temp_text = canvas.getContext('2d');
+            var font = "";
+            if (align == undefined) {
+                context.textAlign = 'left'; //start, end, left right and center work
+            } else {
+                context.textAlign = align;
+            }
+            if (style != undefined) {
+                font += style;
+            }
+            if (size == undefined) {
+                font += " 40pt";
+            } else {
+                font += " " + parseInt(size) + "pt";
+            }
+            if (text_font == undefined) {
+                font += ' Calibri';
+            } else {
+                font += text_font;
+            }
+            temp_text.font = font;
+            if (color == undefined) {
+                temp_text.fillStyle = 'blue';
+            } else {
+                temp_text.fillStyle = color;
+            }
+            temp_text.fillText(text, xpos, ypos);
         }
     </script>
 </head>
@@ -69,6 +94,7 @@
         drawCircle(40, 40, 15, 15, "red", true, "yellow");
         drawCircle(80, 80, 15);
         writeText("I LIKE PIE", 100, 100);
+        writeText("Jokes are funny", 300, 150, "578", 20);
     </script>
 </body>
 

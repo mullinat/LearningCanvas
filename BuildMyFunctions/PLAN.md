@@ -19,4 +19,5 @@ I need a function to build click boxes easily
   use the function I have already written in a function here
 I need to be able to change stuff on the canvas
   all my function will do This
+I need a data structure to store everything
 MAKE A CLASS
