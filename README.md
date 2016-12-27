@@ -6,5 +6,9 @@ Also putting the learning method of Learn Python The Hard Way to good use
   add comments to all the lines of code
   make something with the code
 
+
+I made an API to help draw stuff, it is still a work in progress
+  the API is in Draw.js
+  index.html uses it and has some examples
 CREDIT WHERE IT IS DUE:
   http://www.html5canvastutorials.com/

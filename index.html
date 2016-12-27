@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="./Draw.js"></script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="578" height="200" style="border:1px solid #000000;"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        var draw = new Draw();
+        draw.drawLine(10, 10, 100, 200, 15, "green", "butt");
+        draw.drawLine(10, 10, 200, 100);
+        draw.drawCircle(40, 40, 15, 15, "red", true, "yellow");
+        draw.drawCircle(80, 80, 15);
+        draw.writeText("I LIKE PIE", 100, 100);
+        draw.writeText("Jokes are funny", 300, 150, "578", 20);
+        draw.elements.push({
+            colour: '#f51b1b',
+            width: 50,
+            height: 50,
+            top: 100,
+            left: 0
+        });
+        draw.clickBox();
+    </script>
+</body>
+
+</html>
