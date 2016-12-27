@@ -81,31 +81,6 @@
             }
             temp_text.fillText(text, xpos, ypos);
         }
-
-        function clickBox(elements) {
-            // Add event listener for `click` events.
-            elem.addEventListener('click', function(event) { //the function that detects the click
-                var x = event.pageX - elem.offsetLeft,
-                    y = event.pageY - elem.offsetTop;
-
-                // Collision detection between clicked offset and element.
-                elements.forEach(function(element) {
-                    if (y > element.top && y < element.top + element.height &&
-                        x > element.left && x < element.left + element.width) {
-                        document.getElementById("myCanvas").style.background = "rgb(" + Math.floor((Math.random() * 255) + 1) + ",200, 90)";
-                        //alert('clicked an element');
-                    }
-                });
-
-            }, false);
-        }
-
-        function drawClickBox() {
-            elements.forEach(function(element) {
-                context.fillStyle = element.colour;
-                context.fillRect(element.left, element.top, element.width, element.height);
-            });
-        }
     </script>
 </head>
 
@@ -120,20 +95,6 @@
         drawCircle(80, 80, 15);
         writeText("I LIKE PIE", 100, 100);
         writeText("Jokes are funny", 300, 150, "578", 20);
-
-
-
-        var elem = document.getElementById('myCanvas'); //create a javascript elemnt
-        var elements = []; //create list of elements, to be displayed, and boxed
-        elements.push({
-            colour: '#f51b1b',
-            width: 50,
-            height: 50,
-            top: 100,
-            left: 0
-        });
-        clickBox(elements);
-        drawClickBox(elements);
     </script>
 </body>
 
