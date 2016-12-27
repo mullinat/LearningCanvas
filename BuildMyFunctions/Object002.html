@@ -84,25 +84,23 @@
             }
             this.elements = [];
 
-            this.clickBox = function(elements) {
-              console.log("clickBox Works")
-              var elem = document.getElementById('myCanvas');
+            this.clickBox = function() {
+                var elem = document.getElementById('myCanvas');
                 // Add event listener for `click` events.
+                var elements = this.elements;
                 elem.addEventListener('click', function(event) { //the function that detects the click
-                    var x = event.pageX - elem.offsetLeft,
-                        y = event.pageY - elem.offsetTop;
-
-                    // Collision detection between clicked offset and element.
-                    elements.forEach(function(element) {//THIS
+                    var x = event.pageX - elem.offsetLeft;
+                    var y = event.pageY - elem.offsetTop;
+                        // Collision detection between clicked offset and element.
+                    elements.forEach(function(element) { //THIS line is shit
                         if (y > element.top && y < element.top + element.height &&
                             x > element.left && x < element.left + element.width) {
                             document.getElementById("myCanvas").style.background = "rgb(" + Math.floor((Math.random() * 255) + 1) + ",200, 90)";
-                            //alert('clicked an element');
                         }
                     });
 
                 }, false);
-                elements.forEach(function(element) {//THIS
+                this.elements.forEach(function(element) { //THIS
                     context.fillStyle = element.colour;
                     context.fillRect(element.left, element.top, element.width, element.height);
                 });
@@ -130,15 +128,7 @@
             top: 100,
             left: 0
         });
-        var elements = [];
-        elements.push({
-            colour: '#f51b1b',
-            width: 50,
-            height: 50,
-            top: 100,
-            left: 0
-        });
-        draw.clickBox(elements);
+        draw.clickBox();
     </script>
 </body>
 
