@@ -27,7 +27,7 @@
                 temp_line.stroke();
             }
 
-             this.drawCircle = function(centerX, centerY, radius, width, color, fill, fill_color) {
+            this.drawCircle = function(centerX, centerY, radius, width, color, fill, fill_color) {
                 var temp_circle = canvas.getContext('2d');
                 temp_circle.beginPath();
                 temp_circle.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
@@ -52,7 +52,7 @@
                 temp_circle.stroke();
             }
 
-             this.writeText = function(text, xpos, ypos, align, size, text_font, style, color) {
+            this.writeText = function(text, xpos, ypos, align, size, text_font, style, color) {
                 //maybe usetags in a string to get the info /t /x /y /a /s /f /s /c or type them out
                 var temp_text = canvas.getContext('2d');
                 var font = "";
@@ -82,15 +82,18 @@
                 }
                 temp_text.fillText(text, xpos, ypos);
             }
+            this.elements = [];
 
             this.clickBox = function(elements) {
+              console.log("clickBox Works")
+              var elem = document.getElementById('myCanvas');
                 // Add event listener for `click` events.
                 elem.addEventListener('click', function(event) { //the function that detects the click
                     var x = event.pageX - elem.offsetLeft,
                         y = event.pageY - elem.offsetTop;
 
                     // Collision detection between clicked offset and element.
-                    elements.forEach(function(element) {
+                    elements.forEach(function(element) {//THIS
                         if (y > element.top && y < element.top + element.height &&
                             x > element.left && x < element.left + element.width) {
                             document.getElementById("myCanvas").style.background = "rgb(" + Math.floor((Math.random() * 255) + 1) + ",200, 90)";
@@ -99,10 +102,7 @@
                     });
 
                 }, false);
-            }
-
-            this.drawClickBox = function() {
-                elements.forEach(function(element) {
+                elements.forEach(function(element) {//THIS
                     context.fillStyle = element.colour;
                     context.fillRect(element.left, element.top, element.width, element.height);
                 });
@@ -123,11 +123,14 @@
         draw.drawCircle(80, 80, 15);
         draw.writeText("I LIKE PIE", 100, 100);
         draw.writeText("Jokes are funny", 300, 150, "578", 20);
-
-
-        //CODE FOR CLICKABLE BOXES
-        var elem = document.getElementById('myCanvas'); //has to be seperate or doesen't work
-        var elements = []; //create list of elements, to be displayed, and boxed
+        draw.elements.push({
+            colour: '#f51b1b',
+            width: 50,
+            height: 50,
+            top: 100,
+            left: 0
+        });
+        var elements = [];
         elements.push({
             colour: '#f51b1b',
             width: 50,
@@ -135,8 +138,7 @@
             top: 100,
             left: 0
         });
-        clickBox(elements); //maybe these two function can be put together in an effective way
-        drawClickBox(elements);
+        draw.clickBox(elements);
     </script>
 </body>
 
