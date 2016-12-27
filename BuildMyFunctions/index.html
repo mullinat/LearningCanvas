@@ -122,8 +122,8 @@
         writeText("Jokes are funny", 300, 150, "578", 20);
 
 
-
-        var elem = document.getElementById('myCanvas'); //create a javascript elemnt
+        //CODE FOR CLICKABLE BOXES
+        var elem = document.getElementById('myCanvas'); //has to be seperate or doesen't work
         var elements = []; //create list of elements, to be displayed, and boxed
         elements.push({
             colour: '#f51b1b',
@@ -132,7 +132,7 @@
             top: 100,
             left: 0
         });
-        clickBox(elements);
+        clickBox(elements);//maybe these two function can be put together in an effective way
         drawClickBox(elements);
     </script>
 </body>
